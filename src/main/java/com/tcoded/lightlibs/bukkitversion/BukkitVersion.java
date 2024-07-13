@@ -1,4 +1,4 @@
-package com.tcoded;
+package com.tcoded.lightlibs.bukkitversion;
 
 public enum BukkitVersion {
 
