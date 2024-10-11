@@ -57,6 +57,9 @@ public enum MCVersion {
     v1_21_1 (BukkitVersion.v1_21_R1)
     ;
 
+    // Need to be generated, let's do it only once
+    public static final MCVersion[] VALUES = values();
+
     public static MCVersion fromMcVersion(String mcVersion) {
         Objects.requireNonNull(mcVersion, "mcVersion cannot be null");
 
@@ -75,6 +78,10 @@ public enum MCVersion {
 
         String mcVersionSection = serverVersion.split("-")[0];
         return fromMcVersion(mcVersionSection);
+    }
+
+    public static MCVersion getLatest() {
+        return VALUES[VALUES.length - 1];
     }
 
     private final BukkitVersion bukkitVer;

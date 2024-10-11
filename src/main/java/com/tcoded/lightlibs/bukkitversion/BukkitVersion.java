@@ -28,6 +28,13 @@ public enum BukkitVersion {
     v1_21_R1(MCVersion.v1_21)
     ;
 
+    // Need to be generated, let's do it only once
+    public static final BukkitVersion[] VALUES = values();
+
+    public static BukkitVersion getLatest() {
+        return VALUES[VALUES.length - 1];
+    }
+
     private final MCVersion[] mcVersions;
 
     BukkitVersion(MCVersion... mcVersions) {
