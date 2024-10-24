@@ -1,6 +1,8 @@
 package com.tcoded.lightlibs.bukkitversion;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public enum MCVersion {
 
@@ -78,8 +80,25 @@ public enum MCVersion {
     public static MCVersion fromServerVersion(String serverVersion) {
         Objects.requireNonNull(serverVersion, "serverVersion cannot be null");
 
-        String mcVersionSection = serverVersion.split("-")[0];
-        return fromMcVersion(mcVersionSection);
+        MCVersion mcVersion;
+        String mcVersionSection;
+
+        // Attempt match for modern Paper format
+        // 1.21.1-98-master@9b1ee0d
+        mcVersionSection = serverVersion.split("-")[0];
+        mcVersion = fromMcVersion(mcVersionSection);
+        if (mcVersion != null) return mcVersion;
+
+        // Attempt match for legacy Spigot format
+        // git-Paper-496 (MC: 1.20.4)
+        // 4352-Spigot-5eb8a94-55141ae (MC: 1.21.3)
+        Matcher matcher = Pattern.compile("\\(MC: (1\\.\\S+)\\)").matcher(serverVersion);
+        if (matcher.find()) {
+            mcVersionSection = matcher.group(1);
+            mcVersion = fromMcVersion(mcVersionSection);
+        }
+
+        return mcVersion;
     }
 
     public static MCVersion getLatest() {

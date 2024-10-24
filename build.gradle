@@ -1,9 +1,10 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
-group = 'com.tcoded'
-version = '0.0.6'
+group = 'com.tcoded.lightlibs'
+version = '0.0.7'
 
 repositories {
     mavenCentral()
@@ -16,4 +17,16 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = group
+            artifactId = project.name
+            version = version
+
+            from components.java
+        }
+    }
 }
