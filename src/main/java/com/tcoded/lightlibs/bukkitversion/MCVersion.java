@@ -6,9 +6,9 @@ public enum MCVersion {
 
     v1_8_8 (BukkitVersion.v1_8_R3),
     v1_9 (BukkitVersion.v1_9_R1),
-    v1_9_1 (BukkitVersion.v1_9_R1),
+    v1_9_1 (BukkitVersion.v1_9_R1), // superseded by v1_9_2
     v1_9_2 (BukkitVersion.v1_9_R1),
-//    v1_9_3 (BukkitVersion.v1_9_R1), // todo
+    v1_9_3 (BukkitVersion.v1_9_R2), // superseded by v1_9_4
     v1_9_4 (BukkitVersion.v1_9_R2),
     v1_10 (BukkitVersion.v1_10_R1),
     v1_10_1 (BukkitVersion.v1_10_R1),
@@ -49,13 +49,13 @@ public enum MCVersion {
     v1_20 (BukkitVersion.v1_20_R1),
     v1_20_1 (BukkitVersion.v1_20_R1),
     v1_20_2 (BukkitVersion.v1_20_R2),
-//    v1_20_3 (BukkitVersion.v1_20_R2), // todo
+    v1_20_3 (BukkitVersion.v1_20_R3), // superseded by v1_20_4
     v1_20_4 (BukkitVersion.v1_20_R3),
     v1_20_5 (BukkitVersion.v1_20_R4),
     v1_20_6 (BukkitVersion.v1_20_R4),
     v1_21 (BukkitVersion.v1_21_R1),
     v1_21_1 (BukkitVersion.v1_21_R1),
-    v1_21_2 (BukkitVersion.v1_21_R2),
+    v1_21_2 (BukkitVersion.v1_21_R2), // superseded by v1_21_3
     v1_21_3 (BukkitVersion.v1_21_R2),
     ;
 
