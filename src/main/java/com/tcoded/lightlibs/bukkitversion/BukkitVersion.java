@@ -3,8 +3,8 @@ package com.tcoded.lightlibs.bukkitversion;
 public enum BukkitVersion {
 
     v1_8_R3(MCVersion.v1_8_8),
-    v1_9_R1(MCVersion.v1_9, MCVersion.v1_9_2),
-    v1_9_R2(MCVersion.v1_9_4),
+    v1_9_R1(MCVersion.v1_9, MCVersion.v1_9_1, MCVersion.v1_9_2),
+    v1_9_R2(MCVersion.v1_9_3, MCVersion.v1_9_4),
     v1_10_R1(MCVersion.v1_10_2),
     v1_11_R1(MCVersion.v1_11, MCVersion.v1_11_2),
     v1_12_R1(MCVersion.v1_12, MCVersion.v1_12_1, MCVersion.v1_12_2),
