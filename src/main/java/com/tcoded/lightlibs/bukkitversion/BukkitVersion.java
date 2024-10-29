@@ -1,32 +1,33 @@
 package com.tcoded.lightlibs.bukkitversion;
 
+@SuppressWarnings("deprecation")
 public enum BukkitVersion {
 
-    v1_8_R3(MCVersion.v1_8_8),
-    v1_9_R1(MCVersion.v1_9, MCVersion.v1_9_1, MCVersion.v1_9_2),
-    v1_9_R2(MCVersion.v1_9_3, MCVersion.v1_9_4),
-    v1_10_R1(MCVersion.v1_10_2),
-    v1_11_R1(MCVersion.v1_11, MCVersion.v1_11_2),
-    v1_12_R1(MCVersion.v1_12, MCVersion.v1_12_1, MCVersion.v1_12_2),
-    v1_13_R1(MCVersion.v1_13),
-    v1_13_R2(MCVersion.v1_13_1, MCVersion.v1_13_2),
-    v1_14_R1(MCVersion.v1_14, MCVersion.v1_14_1, MCVersion.v1_14_2, MCVersion.v1_14_3, MCVersion.v1_14_4),
-    v1_15_R1(MCVersion.v1_15, MCVersion.v1_15_1, MCVersion.v1_15_2),
-    v1_16_R1(MCVersion.v1_16_1),
-    v1_16_R2(MCVersion.v1_16_2, MCVersion.v1_16_3),
-    v1_16_R3(MCVersion.v1_16_4, MCVersion.v1_16_5),
-    v1_17_R1(MCVersion.v1_17, MCVersion.v1_17_1),
-    v1_18_R1(MCVersion.v1_18, MCVersion.v1_18_1),
-    v1_18_R2(MCVersion.v1_18_2),
-    v1_19_R1(MCVersion.v1_19, MCVersion.v1_19_1, MCVersion.v1_19_2),
-    v1_19_R2(MCVersion.v1_19_3),
-    v1_19_R3(MCVersion.v1_19_4),
-    v1_20_R1(MCVersion.v1_20, MCVersion.v1_20_1),
-    v1_20_R2(MCVersion.v1_20_2),
-    v1_20_R3(MCVersion.v1_20_3, MCVersion.v1_20_4),
-    v1_20_R4(MCVersion.v1_20_5, MCVersion.v1_20_6),
-    v1_21_R1(MCVersion.v1_21, MCVersion.v1_21_1),
-    v1_21_R2(MCVersion.v1_21_2, MCVersion.v1_21_3)
+    v1_8_R3(() -> new MCVersion[] {MCVersion.v1_8_8}),
+    v1_9_R1(() -> new MCVersion[] {MCVersion.v1_9, MCVersion.v1_9_1, MCVersion.v1_9_2}),
+    v1_9_R2(() -> new MCVersion[] {MCVersion.v1_9_3, MCVersion.v1_9_4}),
+    v1_10_R1(() -> new MCVersion[] {MCVersion.v1_10_2}),
+    v1_11_R1(() -> new MCVersion[] {MCVersion.v1_11, MCVersion.v1_11_2}),
+    v1_12_R1(() -> new MCVersion[] {MCVersion.v1_12, MCVersion.v1_12_1, MCVersion.v1_12_2}),
+    v1_13_R1(() -> new MCVersion[] {MCVersion.v1_13}),
+    v1_13_R2(() -> new MCVersion[] {MCVersion.v1_13_1, MCVersion.v1_13_2}),
+    v1_14_R1(() -> new MCVersion[] {MCVersion.v1_14, MCVersion.v1_14_1, MCVersion.v1_14_2, MCVersion.v1_14_3, MCVersion.v1_14_4}),
+    v1_15_R1(() -> new MCVersion[] {MCVersion.v1_15, MCVersion.v1_15_1, MCVersion.v1_15_2}),
+    v1_16_R1(() -> new MCVersion[] {MCVersion.v1_16_1}),
+    v1_16_R2(() -> new MCVersion[] {MCVersion.v1_16_2, MCVersion.v1_16_3}),
+    v1_16_R3(() -> new MCVersion[] {MCVersion.v1_16_4, MCVersion.v1_16_5}),
+    v1_17_R1(() -> new MCVersion[] {MCVersion.v1_17, MCVersion.v1_17_1}),
+    v1_18_R1(() -> new MCVersion[] {MCVersion.v1_18, MCVersion.v1_18_1}),
+    v1_18_R2(() -> new MCVersion[] {MCVersion.v1_18_2}),
+    v1_19_R1(() -> new MCVersion[] {MCVersion.v1_19, MCVersion.v1_19_1, MCVersion.v1_19_2}),
+    v1_19_R2(() -> new MCVersion[] {MCVersion.v1_19_3}),
+    v1_19_R3(() -> new MCVersion[] {MCVersion.v1_19_4}),
+    v1_20_R1(() -> new MCVersion[] {MCVersion.v1_20, MCVersion.v1_20_1}),
+    v1_20_R2(() -> new MCVersion[] {MCVersion.v1_20_2}),
+    v1_20_R3(() -> new MCVersion[] {MCVersion.v1_20_3, MCVersion.v1_20_4}),
+    v1_20_R4(() -> new MCVersion[] {MCVersion.v1_20_5, MCVersion.v1_20_6}),
+    v1_21_R1(() -> new MCVersion[] {MCVersion.v1_21, MCVersion.v1_21_1}),
+    v1_21_R2(() -> new MCVersion[] {MCVersion.v1_21_2, MCVersion.v1_21_3})
     ;
 
     // Need to be generated, let's do it only once
@@ -36,9 +37,9 @@ public enum BukkitVersion {
         return VALUES[VALUES.length - 1];
     }
 
-    private final MCVersion[] mcVersions;
+    private final MCVersionSupplier mcVersions;
 
-    BukkitVersion(MCVersion... mcVersions) {
+    BukkitVersion(MCVersionSupplier mcVersions) {
         this.mcVersions = mcVersions;
     }
 
@@ -63,7 +64,7 @@ public enum BukkitVersion {
     }
 
     public MCVersion[] getMcVersions() {
-        return mcVersions;
+        return mcVersions.getVersions();
     }
 
 }
