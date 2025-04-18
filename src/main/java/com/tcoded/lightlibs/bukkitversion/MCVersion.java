@@ -60,6 +60,7 @@ public enum MCVersion {
     v1_21_2 (BukkitVersion.v1_21_R2), // superseded by v1_21_3
     v1_21_3 (BukkitVersion.v1_21_R2),
     v1_21_4 (BukkitVersion.v1_21_R3),
+    v1_21_5 (BukkitVersion.v1_21_R4),
     ;
 
     // Need to be generated, let's do it only once
