@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.tcoded.lightlibs"
-version = "0.0.16"
+version = "0.0.17"
 
 repositories {
     mavenCentral()
