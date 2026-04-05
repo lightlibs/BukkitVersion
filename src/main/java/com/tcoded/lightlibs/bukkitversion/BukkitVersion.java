@@ -35,6 +35,7 @@ public enum BukkitVersion {
     v1_21_R7(() -> new MCVersion[] {MCVersion.v1_21_10}),
     v1_21_R8(() -> new MCVersion[] {MCVersion.v1_21_11}),
     v26_R1(() -> new MCVersion[] {MCVersion.v26_1}),
+    v26_R2(() -> new MCVersion[] {MCVersion.v26_1_1}),
     ;
 
     // Need to be generated, let's do it only once
