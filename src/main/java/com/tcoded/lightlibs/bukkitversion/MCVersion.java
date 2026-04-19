@@ -69,6 +69,7 @@ public enum MCVersion {
     v1_21_11 (BukkitVersion.v1_21_R8),
     v26_1 (BukkitVersion.v26_R1),
     v26_1_1 (BukkitVersion.v26_R2),
+    v26_1_2 (BukkitVersion.v26_R3),
     ;
 
     // Need to be generated, let's do it only once
